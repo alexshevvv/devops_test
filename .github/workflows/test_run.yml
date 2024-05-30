@@ -1,0 +1,26 @@
+name: check_program
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: tests for calculate function using -PYTEST-
+      run: |
+        pytest ./tests/test_function.py
+    - name: Tests for main project using -PYTEST-
+      run: |
+        pytest ./tests/project_tests.py
+    - name: Run Pylint with pylintrc configuration
+      run: |
+        pylint ./project/calculator.py
