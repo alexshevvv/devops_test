@@ -20,6 +20,17 @@ class Calculator:
         except Exception as e:
             return f"Ошибка при вычислении: {e}"
 
+    @staticmethod
+    def calculate_average(numbers):
+        if not numbers:
+            return "Список чисел пуст!"
+
+        try:
+            average = sum(numbers) / len(numbers)
+            return average
+        except Exception as e:
+            return f"Ошибка при вычислении среднего значения: {e}"
+
 
 def main():
     calc = Calculator()
@@ -32,6 +43,13 @@ def main():
 
         result = calc.calculate(expression)
         print("Результат:", result)
+
+        # Добавим обработку новой функции
+        if expression.lower() == "average":
+            numbers_str = input("Введите числа через пробел: ")
+            numbers = [float(num) for num in numbers_str.split()]
+            average_result = calc.calculate_average(numbers)
+            print("Среднее значение:", average_result)
 
 
 if __name__ == "__main__":
