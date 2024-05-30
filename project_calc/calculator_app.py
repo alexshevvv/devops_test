@@ -10,7 +10,8 @@ class Calculator:
         except Exception:
             return False
 
-    def calculate(self, expression):
+    @staticmethod
+    def calculate(expression):
         if not Calculator.validate_input(expression):
             return "Некорректный ввод!"
 
