@@ -40,7 +40,6 @@ jobs:
     - name: Build binary with PyInstaller
       run: |
         pyinstaller --onefile calculator.py
-      # Предполагая, что ваш основной скрипт называется calculator.py
 
     - name: Build Project
       run: |
@@ -63,7 +62,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./dist/your_asset.zip  # Убедитесь, что у вас есть этот файл или измените путь
+        asset_path: ./dist/your_asset.zip
         asset_name: your_asset.zip
         asset_content_type: application/zip
 
@@ -73,6 +72,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./dist/calculator  # Убедитесь, что у вас есть этот файл или измените путь
+        asset_path: ./calculator_app.spec
         asset_name: calculator
         asset_content_type: application/octet-stream
